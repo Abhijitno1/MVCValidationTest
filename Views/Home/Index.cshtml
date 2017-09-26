@@ -1,0 +1,53 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+@{
+    var currentDateTime = DateTime.Now.ToShortDateString();
+    var currentCulture = System.Globalization.CultureInfo.CurrentCulture;
+    var currentCurrencyFormat = 0.0m;
+}
+<div class="row">
+    <div class="col-md-8">
+        <div class="jumbotron">
+            <h1>ASP.NET <a href="http://asp.net" class="btn btn-primary btn-sm pull-right">Learn more &raquo;</a></h1>
+            <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
+            
+        </div>
+        <div class="row">
+            <div class="col-sm-6">
+                <h2>Getting started</h2>
+                <p>
+                    ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
+                    enables a clean separation of concerns and gives you full control over markup
+                    for enjoyable, agile development.
+                </p>
+                <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
+            </div>
+            <div class="col-sm-6">
+                <h2>Get more libraries</h2>
+                <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
+                <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
+            </div>
+        </div> 
+        <div class="row">
+            <h2>@MVCValidationTest.Resources.HomeResources.Greeting</h2>
+            <div class="col-sm-4">
+                <strong>Today's date</strong><br/>
+                <strong>Current Culture</strong><br />
+                <strong>Current Currency Format</strong><br />
+            </div>
+            <div class="col-sm-8">
+                <i>@currentDateTime</i><br />
+                <i>@currentCulture</i><br />
+                <i>@currentCurrencyFormat.ToString("c")</i><br />
+            </div>
+        </div>   
+    </div>
+    <div class="col-md-4">
+        <div class="row">
+            <div class="col-sm-12">
+                <img src="@Url.Action("GetSampleImage")" />
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,48 @@
+﻿@model List<MVCValidationTest.Models.Employee>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+@using(Html.BeginForm("Index", "ModelBindingTest", FormMethod.Post))
+{
+    <table border="1" cellspacing="0" width="70%">
+        <tr>
+            <td>Id</td>
+            <td>EmployeeName</td>
+            <td>Designation</td>
+        </tr>
+        @for (var i = 0; i < Model.Count(); i++ )
+        {
+            <tr>
+                <td>
+                    @*@Html.Hidden("employees.Index", i)*@
+                    @Html.TextBox("employees["+ i.ToString() + "].Id", Model[i].Id)
+                </td>
+                <td>@Html.TextBox("employees[" + i.ToString() + "].EmployeeName", Model[i].EmployeeName)</td>
+                <td>@Html.TextBox("employees[" + i.ToString() + "].Designation", Model[i].Designation)</td>
+            </tr>
+        }
+        <tr>
+            <td colspan="3"><input type="submit" value="Submit" /></td>
+        </tr>
+    </table>
+}
+
+<table border="1" cellspacing="0" width="50%">
+    <tr>
+        <td>Id</td>
+        <td>EmployeeName</td>
+        <td>Designation</td>
+    </tr>
+    @foreach(var employee in Model)
+    {
+        <tr>
+            <td>@employee.Id</td>
+            <td>@employee.EmployeeName</td>
+            <td>@employee.Designation</td>
+        </tr>
+    }
+</table>
+

@@ -1,0 +1,62 @@
+﻿@model IEnumerable<MVCValidationTest.Models.FileModel>
+@using MVCValidationTest.Customizations
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    <h3>Upload File</h3>
+    @using(Html.BeginForm("Upload", "FileUploadDownload", FormMethod.Post, new {enctype = "multipart/form-data"}))
+    {
+        <input type="file" name="postedFile" /> <input type="submit" value="Upload" />
+    }
+
+    @using (@Html.BeginForm("Download", "FileUploadDownload"))
+    {
+        @Html.Hidden("hdnFileId")
+        <input type="submit" id="btnFileDownload" value="Download" style="display:none;" />
+    }
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FileName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ContentType)
+        </th>
+        <th>Download</th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <th>
+            @Html.DisplayFor(modelItem => item.Id)
+        </th>
+        <td>
+            @Html.DisplayFor(modelItem => item.FileName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ContentType)
+        </td>
+        <td>
+            @Html.JSActionLink("Download", "downloadFile", new object[] { item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>
+
+<script>
+    function downloadFile(fileId) {
+        $('#hdnFileId').val(fileId);
+        $('#btnFileDownload').click();
+    }
+</script>

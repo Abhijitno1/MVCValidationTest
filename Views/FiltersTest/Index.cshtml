@@ -1,0 +1,28 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<h3>Information about current call</h3>
+
+<table>
+    <tr>
+        <td width="200px;">Controller</td>
+        <td>@ViewBag.ActionLog.ControllerName</td>
+    </tr>
+    <tr>
+        <td>Action</td>
+        <td>@ViewBag.ActionLog.ActionName</td>
+    </tr>
+    <tr>
+        <td>Client IP Address</td>
+        <td>@ViewBag.ActionLog.IPAddress</td>
+    </tr>
+    <tr>
+        <td>Request Timestamp</td>
+        <td>@ViewBag.ActionLog.RequestTimeStamp.ToShortDateString()</td>
+    </tr>
+</table>
+

@@ -1,0 +1,40 @@
+﻿@model System.Web.Mvc.HandleErrorInfo
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Error</title>
+</head>
+<body>
+    <hgroup>
+        <h1>Error.</h1>
+        <h2>An error occurred while processing your request.</h2>
+    </hgroup>
+    @if (Model != null && HttpContext.Current.IsDebuggingEnabled)
+    {
+        <p>
+            <table border="1" style="border-collapse:collapse;">
+                <tr>
+                    <td>Controller Name: </td>
+                    <td>@Model.ControllerName</td>
+                </tr>
+                <tr>
+                    <td>Action Name: </td>
+                    <td>@Model.ActionName</td>
+                </tr>
+                <tr>
+                    <td>Exception: </td>
+                    <td>@Model.Exception.Message</td>
+                </tr>
+                <tr>
+                    <td colspan="2">Stack trace: </td>
+                </tr>
+                <tr>
+                    <td colspan="2">@Model.Exception.StackTrace</td>
+                </tr>
+            </table>
+
+        </p>
+    }
+</body>
+</html>

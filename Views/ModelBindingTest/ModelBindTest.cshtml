@@ -1,0 +1,19 @@
+﻿@{
+    ViewBag.Title = "Model Biding Test";
+}
+<h2>@ViewBag.Title.</h2>
+
+<h3>@ViewBag.Message</h3>
+<form method="post" action="~/Home/ModelBindTest">
+    <fieldset>
+        <legend>Custom Model Biding Test</legend>
+        <div>
+            <span style="display:inline-block; margin: 10px;"><input name="Day" /></span>
+            <span style="display:inline-block; margin: 10px;"><input name="Month" /></span>
+            <span style="display:inline-block; margin: 10px;"><input name="Year" /></span>
+        </div>
+        <div>
+            <button type="submit">Submit</button>
+        </div>
+    </fieldset>
+</form>
