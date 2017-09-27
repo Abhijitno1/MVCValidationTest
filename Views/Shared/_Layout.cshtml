@@ -8,6 +8,7 @@
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
     @Scripts.Render("~/bundles/jquery")
+    @RenderSection("PageStyles", false)
     <script>
         var siteRoot = '@Href("/")';
     </script>

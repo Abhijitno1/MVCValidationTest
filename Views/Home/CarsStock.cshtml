@@ -1,0 +1,38 @@
+﻿@section PageStyles {
+    <style>
+        td {
+          width: 50px;  
+        }
+    </style>
+}
+
+<script>
+    function getAllCarDetails() {
+        //alert('It works');
+        $.ajax({
+            type: 'GET',
+            url: '/API/Car',
+            dataType: 'json',
+            contentType: 'application/json',
+            success: function (data) {
+                //debugger;
+                $.each(data, function (i, item) {
+                    var row = '<tr>';
+                    row += '<td>' + item.carName + '</td>';
+                    row += '<td>' + item.carModel + '</td>';
+                    row += '<td>' + item.carPrice + '</td>';
+                    row += '<td>' + item.carColor + '</td></tr>';
+                    $('#carTbl').append(row)
+                });
+            },
+            error: function (xhr) {
+                alert(xhr.responseText);
+            }
+        });
+    }
+</script>
+<input type="button" onclick="getAllCarDetails()" value="Get All Car Details">
+<table id="carTbl" border="1">
+
+</table>
+

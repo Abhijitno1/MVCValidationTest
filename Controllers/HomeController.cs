@@ -56,6 +56,11 @@ namespace MVCValidationTest.Controllers
             return View("CacheTest");
         }
 
+        public ActionResult CarsStock()
+        {
+            return View();
+        }
+
         public ActionResult ErrorTest()
         {
             throw new ApplicationException("This custom error should be shown on Custom Error Page");
