@@ -1,0 +1,14 @@
+﻿@model IEnumerable<MVCValidationTest.Models.Student>
+
+<table>
+    <tr>
+        <th>List of Students rendered from Partial View</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@Html.DisplayFor(modelitem => item.StudentName)</td>
+        </tr>
+    }
+</table>
+

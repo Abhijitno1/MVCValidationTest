@@ -22,5 +22,13 @@ namespace MVCValidationTest.Controllers
         {
             return View();
         }
+
+        [ChildActionOnly]
+        public ActionResult GetStudentNameList()
+        {
+            SampleDBContext db = new SampleDBContext();
+            return PartialView("_StudentNameDisplay", db.Students.ToList());
+        }
+
     }
 }

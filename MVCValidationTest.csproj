@@ -39,10 +39,20 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -118,6 +128,7 @@
     <Compile Include="Controllers\FiltersTestController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ModelBindingTestController.cs" />
+    <Compile Include="Controllers\StudentsController.cs" />
     <Compile Include="Customizations\CustomActionFilter.cs" />
     <Compile Include="Customizations\CustomAuthorizeAttribute.cs" />
     <Compile Include="Customizations\CustomErrorHandler.cs" />
@@ -125,6 +136,7 @@
     <Compile Include="Customizations\ImageResult.cs" />
     <Compile Include="Customizations\XtraHTMLHelpers.cs" />
     <Compile Include="Customizations\PositiveNumberAttribute.cs" />
+    <Compile Include="Models\FilesTable.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -147,6 +159,8 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>HomeResources.hi.resx</DependentUpon>
     </Compile>
+    <Compile Include="Models\SampleDBContext.cs" />
+    <Compile Include="Models\Student.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Data\SampleLocalDB.mdf" />
@@ -203,6 +217,12 @@
     <Content Include="Views\Home\LongRunningMethod.cshtml" />
     <Content Include="Views\Home\CacheTest.cshtml" />
     <Content Include="Views\Home\CacheProfileTest.cshtml" />
+    <Content Include="Views\Students\Create.cshtml" />
+    <Content Include="Views\Students\Delete.cshtml" />
+    <Content Include="Views\Students\Details.cshtml" />
+    <Content Include="Views\Students\Edit.cshtml" />
+    <Content Include="Views\Students\Index.cshtml" />
+    <Content Include="Views\Shared\_StudentNameDisplay.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\HomeResources.hi.resx">
